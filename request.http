@@ -1,0 +1,24 @@
+POST http://localhost:3000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name":"putri",
+    "email":"putriindriyanti190203@gmail.com",
+    "password":"123",
+    "password_confirmation":"123"
+}
+
+
+###
+POST http://localhost:3000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email":"putriindriyanti190203@gmail.com",
+    "password":"10"
+}
+
+
+###
+GET http://localhost:3000/api/v1/auth/whoami
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTcwMDM5MzkyN30.2qYWgtxXEdZyN_xCLHXJ5BShL7A6OcwCcxYnzr4jTmk

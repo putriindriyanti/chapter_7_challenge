@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Forgot Password</title>
+
+  <style>
+    /* Reset default styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Style for the form container */
+    .form-container {
+      margin-left: 50px; /* Adjust the left margin */
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+    }
+
+    /* Heading styles */
+    .form-container h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #3498db; /* Blue color */
+    }
+
+    /* Label styles */
+    .form-container label {
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: block;
+      color: #333; /* Darker text color */
+    }
+
+    /* Input styles */
+    .form-container input {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    /* Button style */
+    .form-container .form-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db; /* Blue color */
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    /* Button hover effect */
+    .form-container .form-button:hover {
+      background-color: #2980b9; /* Darker shade of blue on hover */
+    }
+
+    /* Forgot password link style */
+    .form-container .forgot-password-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #3498db; /* Blue color for the link */
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    /* Forgot password link hover effect */
+    .form-container .forgot-password-link:hover {
+      color: #2980b9; /* Darker shade of blue on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h1>Login</h1>
+    <form class="register" action="/api/v1/auth/login" method="POST">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" class="form-input" />
+      
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-input" />
+
+      <button class="form-button">Login</button>
+    </form>
+
+    <a href="http://localhost:3000/api/v1/users/send-email-forgot-password" target="_blank" class="forgot-password-link">Forgot Password?</a>
+  </div>
+</body>
+</html>
+

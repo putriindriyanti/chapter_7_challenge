@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    /* Container styles */
+    .container {
+      padding: 20px;
+      width: 300px;
+      margin-left: 50px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Heading styles */
+    .container h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #3498db; /* Warna biru yang cerah */
+    }
+
+    /* Label styles */
+    .container label {
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: block;
+      color: #333; /* Warna teks yang lebih gelap */
+    }
+
+    /* Input styles */
+    .container input {
+      padding: 8px;
+      width: calc(100% - 16px); /* Lebar input dikurangi padding */
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    /* Input focus styles */
+    .container input:focus {
+      border-color: #3498db; /* Warna border saat input difokuskan */
+      outline: none; /* Menghilangkan outline bawaan */
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.4); /* Efek bayangan saat input difokuskan */
+    }
+
+    /* Button Register styles */
+    .button-register {
+      padding: 10px 20px;
+      background-color: #3498db; /* Warna biru yang cerah */
+      color: #fff; /* Warna teks putih */
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      display: block;
+      margin: 0 auto; /* Membuat tombol berada di tengah */
+    }
+
+    /* Button Register hover styles */
+    .button-register:hover {
+      background-color: #2980b9; /* Warna biru yang sedikit lebih gelap saat dihover */
+    }
+
+    /* Forgot password link style */
+    .forgot-password-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #3498db; /* Blue color for the link */
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    /* Forgot password link hover effect */
+    .forgot-password-link:hover {
+      color: #2980b9; /* Darker shade of blue on hover */
+    }
+
+    /* Login link style */
+    .login-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #3498db; /* Blue color for the link */
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    /* Login link hover effect */
+    .login-link:hover {
+      color: #2980b9; /* Darker shade of blue on hover */
+    }
+  </style>
+</head>
+<body>
+  <section class="container">
+    <h1>Register</h1>
+    <form class="register" action="/api/v1/auth/register" method="POST">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" />
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+
+      <label for="password_confirmation">Confirm Password</label>
+      <input type="password" name="password_confirmation" id="password_confirmation" />
+
+      <button class="button-register">Register</button>
+    </form>
+    <a href="http://localhost:3000/api/v1/users/send-email-forgot-password" target="_blank" class="forgot-password-link">Forgot Password?</a>
+    <p>Already have an account? <a href="http://localhost:3000/api/v1/users/login" target="_blank" class="login-link">Login</a></p> 
+  </section>
+</body>
+</html>

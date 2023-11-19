@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f5f5f5; /* Warna latar belakang */
+      }
+  
+      .container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+        padding: 0 20px; /* Padding dari sisi layar */
+      }
+  
+      .notification {
+        background-color: #fff; /* Warna notifikasi */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan */
+        width: 300px; /* Lebar area notifikasi */
+      }
+  
+      .notification h2 {
+        margin-bottom: 10px;
+        color: #333; /* Warna teks judul */
+      }
+  
+      .notification-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+  
+      .notification-item {
+        margin-bottom: 15px;
+      }
+  
+      .judul-list {
+        font-weight: bold; /* Membuat teks tebal */
+        font-size: 18px; /* Ukuran teks lebih besar */
+        color: #007bff; /* Warna teks biru */
+        margin-bottom: 5px; /* Jarak bawah */
+      }
+  
+      .description-list {
+        margin: 0;
+        color: #333; /* Warna teks notifikasi */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <table class="form-table">
+        <tr>
+          <td colspan="2">
+            <h1 class="notification">Notifikasi</h1>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="notification-list">
+              <ul id="notification">
+                <% user.notifications.map((item) => { %>
+                <li class="notification-item">
+                  <p class="judul-list"><%= item.title %></p>
+                  <p class="description-list"><%= item.description %></p>
+                </li>
+                <% }); %>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const user_id = "<%= user.id %>";
+
+      socket.on(`notification_${user_id}`, (notif) => {
+        console.log("Terhubung");
+        const liEl = document.createElement("li");
+        const ulEl = document.getElementById("notification");
+        liEl.classList.add("notification-item");
+        liEl.innerHTML = `
+          <p class="judul-list">${notif.title}</p>
+          <p class="description-list">${notif.description}</p>
+        `;
+        ulEl.appendChild(liEl);
+      });
+    </script>
+  </body>
+</html>
